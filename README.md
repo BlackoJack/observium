@@ -1,5 +1,6 @@
 # observium
 Observium docker image and docker-compose.yml
+Собран вместе с RANCID (ежедневный бэкап конфигураций mikrotik) и syslog (можете отправлять все логи с хостов на observer)
 
 ## Простой способ (docker-compose):
 1. У вас должен быть установлен [docker](https://docs.docker.com/engine/installation/), [docker-compose](https://docs.docker.com/compose/install/) и git
@@ -40,8 +41,7 @@ $ docker-compose up -d
 $ ssh-keygen -t rsa
 $ scp ~/.ssh/id_rsa.pub admin@<mikrotik_ip>:mykey.pub
 ```
-Passphrase! не заполняем
-      - Заводим пользователя rancid на mikrotik(можно только для чтения) и импортируем ему наш ключ:
+Passphrase! не заполняем. Заводим пользователя rancid на mikrotik(можно только для чтения) и импортируем ему наш ключ:
 ```
 > user ssh-keys import user=rancid public-key-file=mykey.pub
 ```
