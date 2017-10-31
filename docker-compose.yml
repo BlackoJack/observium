@@ -1,0 +1,42 @@
+version: '2'
+
+networks:
+  back:
+    driver: bridge
+
+services:
+  db:
+    restart: always
+    image: mariadb
+    volumes:
+      - /data/docker/observium/data/mysql:/var/lib/mysql
+    env_file:
+      - system.env
+      - mysql.env
+    networks:
+      back:
+        aliases:
+          - observ_db
+  web:
+    restart: always
+    image: blackojack/observium
+    ports:
+      - 8080:80
+      - 514:514/udp
+    depends_on:
+      - db
+    volumes:
+      - /data/docker/observium/data/rrd:/opt/observium/rrd
+      - /data/docker/observium/data/logs:/opt/observium/logs
+      - /data/docker/observium/data/html:/opt/observium/html
+      - /data/docker/observium/data/mibs:/opt/observium/mibs
+      - /data/docker/observium/data/scripts:/opt/observium/scripts
+      - /data/docker/observium/data/ssh_keys:/home/rancid/.ssh
+      - /data/docker/observium/data/rancid_configs:/usr/local/rancid/var/observium/configs
+      - /data/docker/observium/data/rancid_logs:/usr/local/rancid/var/logs
+    env_file:
+      - system.env
+      - mysql.env
+      - observium.env
+    networks:
+      - back
