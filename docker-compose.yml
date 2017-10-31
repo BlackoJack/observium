@@ -19,7 +19,7 @@ services:
           - observ_db
   web:
     restart: always
-    image: blackojack/observium
+    image: blackojack/observium-ce
     ports:
       - 8080:80
       - 514:514/udp
