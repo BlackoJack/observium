@@ -7,6 +7,7 @@ cp /opt/observium/scripts/distro /usr/bin/distro
 mkdir -p /tmp/observium/{scripts,mibs,html}
 mv /opt/observium/scripts/* /tmp/observium/scripts/
 mv /opt/observium/mibs/* /tmp/observium/mibs/
+mv /opt/observium/html/.htaccess /tmp/observium/html/.htaccess
 mv /opt/observium/html/* /tmp/observium/html/
 
 echo "33  */6   * * *   root    /opt/observium/discovery.php -h all >> /dev/null 2>&1" >> /etc/crontab
