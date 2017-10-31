@@ -40,8 +40,7 @@ $ docker-compose up -d
 $ ssh-keygen -t rsa
 $ scp ~/.ssh/id_rsa.pub admin@<mikrotik_ip>:mykey.pub
 ```
-Passphrase не заполняем!
-
+Passphrase! не заполняем
       - Заводим пользователя rancid на mikrotik(можно только для чтения) и импортируем ему наш ключ:
 ```
 > user ssh-keys import user=rancid public-key-file=mykey.pub
