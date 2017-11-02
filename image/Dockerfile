@@ -21,7 +21,7 @@ ENV SNMP_CON=Your\ Name\ \<your@email.address\>
 
 RUN localedef -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
   cp -f /usr/share/zoneinfo/Asia/Novosibirsk /etc/localtime
-  
+
 ENV LANG ru_RU.utf8
 
 ADD scripts/install_system.sh /tmp
@@ -33,6 +33,7 @@ RUN /tmp/install_observium.sh
 ADD scripts/install_rancid.sh /tmp
 RUN /tmp/install_rancid.sh
 
+ADD scripts/check_owner.sh /
 ADD scripts/start.sh /
 
 ADD configs/supervisord.conf /etc/supervisord.conf
