@@ -2,6 +2,7 @@
 FROM centos:7
 MAINTAINER Raenko Ivan <admin@sysadminsk.ru>
 
+ENV MYSQL_HOST observ_db
 ENV MYSQL_DATABASE observium
 ENV MYSQL_USER observium
 ENV MYSQL_PASSWORD changeme

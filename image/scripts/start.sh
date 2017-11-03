@@ -19,7 +19,7 @@ cat <<EOF > /etc/httpd/conf.d/observium.conf
 </VirtualHost>
 EOF
 
-sed -i "s|'localhost'|'observ_db'|" /opt/observium/config.php
+sed -i "s|'localhost'|'$MYSQL_HOST'|" /opt/observium/config.php
 sed -i "s|'USERNAME'|'$MYSQL_USER'|" /opt/observium/config.php
 sed -i "s|'PASSWORD'|'$MYSQL_PASSWORD'|" /opt/observium/config.php
 sed -i "s|'observium'|'$MYSQL_DATABASE'|" /opt/observium/config.php
