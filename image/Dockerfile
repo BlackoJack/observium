@@ -45,8 +45,7 @@ VOLUME ["/opt/observium/html"]
 VOLUME ["/opt/observium/mibs"]
 VOLUME ["/opt/observium/scripts"]
 VOLUME ["/home/rancid/.ssh"]
-VOLUME ["/usr/local/rancid/var/observium/configs"]
-VOLUME ["/usr/local/rancid/var/logs"]
+VOLUME ["/usr/local/rancid/var"]
 
 EXPOSE 80
 EXPOSE 514/udp
