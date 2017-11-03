@@ -12,8 +12,7 @@ cat <<EOF > /etc/httpd/conf.d/observium.conf
    DocumentRoot /opt/observium/html/
    ServerAdmin $ADMIN_EMAIL
    ServerName $DOMAIN
-   ErrorLog /opt/observium/logs/error_log
-   CustomLog /opt/observium/logs/access_log combined
+   ErrorLog /dev/stderr
    <Directory "/opt/observium/html/">
        Options FollowSymLinks MultiViews
        AllowOverride All

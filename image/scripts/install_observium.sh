@@ -13,6 +13,6 @@ mv /opt/observium/html/* /tmp/observium/html/
 echo "33  */6   * * *   root    /opt/observium/discovery.php -h all >> /dev/null 2>&1" >> /etc/crontab
 echo "*/5 *     * * *   root    /opt/observium/discovery.php -h new >> /dev/null 2>&1" >> /etc/crontab
 echo "*/5 *     * * *   root    /opt/observium/poller-wrapper.py 8 >> /dev/null 2>&1" >> /etc/crontab
-echo "13 5 * * * root /opt/observium/housekeeping.php -ysel" >> /etc/crontab
-echo "47 4 * * * root /opt/observium/housekeeping.php -yrptb" >> /etc/crontab
+echo "13 5      * * *   root /opt/observium/housekeeping.php -ysel >> /dev/null 2>&1" >> /etc/crontab
+echo "47 4      * * *   root /opt/observium/housekeeping.php -yrptb >> /dev/null 2>&1" >> /etc/crontab
 echo "" >> /etc/crontab
