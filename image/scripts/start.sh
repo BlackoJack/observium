@@ -4,8 +4,6 @@ mv -n /tmp/observium/scripts/* /opt/observium/scripts/
 mv -n /tmp/observium/mibs/* /opt/observium/mibs/
 mv -n /tmp/observium/html/.htaccess /opt/observium/html/.htaccess
 mv -n /tmp/observium/html/* /opt/observium/html/
-sleep 4
-rm -rf /tmp/observium
 
 cat <<EOF > /etc/httpd/conf.d/observium.conf
 <VirtualHost *:80>
