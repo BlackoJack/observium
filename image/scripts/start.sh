@@ -29,7 +29,7 @@ sed -i "s|'observium'|'$MYSQL_DATABASE'|" /opt/observium/config.php
 
 sed -i "s|;date.timezone =|date.timezone =$TZ|" /etc/php.ini
 
-echo "\$config['timestamp_format'] = 'd-m-Y H:i:s';" >> /opt/observium/config.php
+echo "\$config['timestamp_format'] = 'd.m.Y H:i:s';" >> /opt/observium/config.php
 echo "\$config['snmp']['version'] = \"v2c\";" >> /opt/observium/config.php
 echo "\$config['snmp']['transports'] = array('udp', 'tcp');" >> /opt/observium/config.php
 echo "\$config['autodiscovery']['snmp_scan']       = TRUE;" >> /opt/observium/config.php
@@ -37,12 +37,8 @@ echo "\$config['autodiscovery']['libvirt']       = TRUE;" >> /opt/observium/conf
 echo "\$config['autodiscovery']['ospf']       = TRUE;" >> /opt/observium/config.php
 echo "\$config['autodiscovery']['bgp']       = TRUE;" >> /opt/observium/config.php
 echo "\$config['autodiscovery']['xdp']       = TRUE;" >> /opt/observium/config.php
-echo "\$config['autodiscovery']['сdp']       = TRUE;" >> /opt/observium/config.php
-echo "\$config['autodiscovery']['lldp']       = TRUE;" >> /opt/observium/config.php
-echo "\$config['autodiscovery']['fdp']       = TRUE;" >> /opt/observium/config.php
 echo "\$config['discover_services']      = true;" >> /opt/observium/config.php
 echo "\$config['enable_libvirt']               = 1;" >> /opt/observium/config.php
-echo "\$config['libvirt_protocols']    = array(\"qemu+ssh\",\"xen+ssh\");" >> /opt/observium/config.php
 echo "\$config['enable_printers']              = 1;" >> /opt/observium/config.php
 echo "\$config['fping'] = \"/sbin/fping\";" >> /opt/observium/config.php
 echo "\$config['fping6'] = \"/sbin/fping6\";" >> /opt/observium/config.php

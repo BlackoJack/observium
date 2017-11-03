@@ -2,8 +2,6 @@
 FROM centos:7
 MAINTAINER Raenko Ivan <admin@sysadminsk.ru>
 
-ENV TERM=xterm
-
 ENV MYSQL_DATABASE observium
 ENV MYSQL_USER observium
 ENV MYSQL_PASSWORD changeme
@@ -18,26 +16,25 @@ ENV SNMP_COMM=public
 ENV SNMP_LOC=Rack,\ Room,\ Building,\ City,\ Country\ \[GPSX,Y\]
 ENV SNMP_CON=Your\ Name\ \<your@email.address\>
 
-
 RUN localedef -i ru_RU -f UTF-8 ru_RU.UTF-8 && \
   cp -f /usr/share/zoneinfo/Asia/Novosibirsk /etc/localtime
 
 ENV LANG ru_RU.utf8
 
-ADD scripts/install_system.sh /tmp
+COPY scripts/install_system.sh /tmp
 RUN /tmp/install_system.sh
 
-ADD scripts/install_observium.sh /tmp
+COPY scripts/install_observium.sh /tmp
 RUN /tmp/install_observium.sh
 
-ADD scripts/install_rancid.sh /tmp
+COPY scripts/install_rancid.sh /tmp
 RUN /tmp/install_rancid.sh
 
-ADD scripts/check_owner.sh /
-ADD scripts/start.sh /
+COPY scripts/check_owner.sh /
+COPY scripts/start.sh /
 
-ADD configs/supervisord.conf /etc/supervisord.conf
-ADD configs/supervisor.d/ /etc/supervisord.d/
+COPY configs/supervisord.conf /etc/supervisord.conf
+COPY configs/supervisor.d/ /etc/supervisord.d/
 RUN chmod 600 /etc/supervisord.conf /etc/supervisord.d/*.ini
 
 WORKDIR /opt/observium
