@@ -30,7 +30,7 @@ RUN /tmp/install_observium.sh
 COPY scripts/install_rancid.sh /tmp
 RUN /tmp/install_rancid.sh
 
-COPY scripts/check_owner.sh /
+COPY scripts/rancid_run.sh /
 COPY scripts/start.sh /
 
 COPY configs/supervisord.conf /etc/supervisord.conf

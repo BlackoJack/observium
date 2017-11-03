@@ -18,3 +18,6 @@ if [ "$fchmod" -ne 600 ]
 then
   chmod 600 $fkey
 fi
+
+/usr/bin/php /opt/observium/scripts/generate-rancid.php > /usr/local/rancid/var/observium/router.db
+su - rancid /usr/local/rancid/bin/rancid-run >> /dev/null 2>&1

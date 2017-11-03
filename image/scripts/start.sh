@@ -84,6 +84,4 @@ chown -hR rancid:apache /usr/local/rancid
 /opt/observium/discovery.php -u
 /opt/observium/adduser.php $ADMIN_USER $ADMIN_PASSWORD 10
 
-php /opt/observium/scripts/generate-rancid.php > /usr/local/rancid/var/observium/router.db
-
 exec "$@"

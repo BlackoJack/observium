@@ -34,8 +34,6 @@ echo "\$config['rancid_configs'][]              = \"/usr/local/rancid/var/observ
 echo "\$config['rancid_ignorecomments']        = 0;" >> /opt/observium/config.php
 echo "\$config['rancid_version'] = '3';" >> /opt/observium/config.php
 
-echo "30 4 * * * /usr/bin/php /opt/observium/scripts/generate-rancid.php > /usr/local/rancid/var/observium/router.db" >> /etc/crontab
-echo "55 4 * * * /check_owner.sh >> /dev/null 2>&1" >> /etc/crontab
-echo "0 5 * * * rancid /usr/local/rancid/bin/rancid-run >> /dev/null 2>&1" >> /etc/crontab
+echo "0 5 * * * root /rancid_run.sh >> /dev/null 2>&1" >> /etc/crontab
 echo "50 23 * * * rancid /usr/bin/find /usr/local/rancid/var/logs -type f -mtime   +2 -exec rm {} \;" >> /etc/crontab
 echo "" >> /etc/crontab
