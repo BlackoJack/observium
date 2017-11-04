@@ -7,9 +7,9 @@ move_files(){
   mv -n /tmp/observium/html/* /opt/observium/html/
 }
 
-if [ "$(cat /moved.txt)" != 1 ]
+if [ "$(cat /opt/observium/html/moved.txt)" != 1 ]
 then
-  echo "1" > /moved.txt
+  echo "1" > /opt/observium/html/moved.txt
   move_files
 fi
 
@@ -94,9 +94,9 @@ db_inst(){
   /opt/observium/adduser.php $ADMIN_USER $ADMIN_PASSWORD 10
 }
 
-if [ "$(cat /db_inst.txt)" != 1 ]
+if [ "$(cat /opt/observium/html/db_inst.txt)" != 1 ]
 then
-  echo "1" > /db_inst.txt
+  echo "1" > /opt/observium/html/db_inst.txt
   db_inst
 fi
 
