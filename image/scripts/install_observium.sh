@@ -16,3 +16,6 @@ echo "*/5 *     * * *   root    /opt/observium/poller-wrapper.py 8 >> /dev/null 
 echo "13 5      * * *   root /opt/observium/housekeeping.php -ysel >> /dev/null 2>&1" >> /etc/crontab
 echo "47 4      * * *   root /opt/observium/housekeeping.php -yrptb >> /dev/null 2>&1" >> /etc/crontab
 echo "" >> /etc/crontab
+
+echo "0" > /moved.txt
+echo "0" > /db_inst.txt
