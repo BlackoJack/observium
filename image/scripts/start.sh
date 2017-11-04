@@ -1,17 +1,18 @@
 #!/bin/bash
 
-if [ "$(cat /moved.txt)" != 1 ]
-then
-  echo "1" > /moved.txt
-  move_files
-fi
-
 move_files(){
   mv -n /tmp/observium/scripts/* /opt/observium/scripts/
   mv -n /tmp/observium/mibs/* /opt/observium/mibs/
   mv -n /tmp/observium/html/.htaccess /opt/observium/html/.htaccess
   mv -n /tmp/observium/html/* /opt/observium/html/
 }
+
+if [ "$(cat /moved.txt)" != 1 ]
+then
+  echo "1" > /moved.txt
+  move_files
+fi
+
 cat <<EOF > /etc/httpd/conf.d/observium.conf
 <VirtualHost *:80>
    DocumentRoot /opt/observium/html/
@@ -88,15 +89,15 @@ chown -hR apache:apache /opt/observium/html
 chown -hR apache:apache /opt/observium/mibs
 chown -hR rancid:apache /usr/local/rancid
 
+db_inst(){
+  /opt/observium/discovery.php -u
+  /opt/observium/adduser.php $ADMIN_USER $ADMIN_PASSWORD 10
+}
+
 if [ "$(cat /db_inst.txt)" != 1 ]
 then
   echo "1" > /db_inst.txt
   db_inst
 fi
-
-db_inst(){
-  /opt/observium/discovery.php -u
-  /opt/observium/adduser.php $ADMIN_USER $ADMIN_PASSWORD 10
-}
 
 exec "$@"
